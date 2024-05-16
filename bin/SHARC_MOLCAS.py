@@ -3640,7 +3640,10 @@ def run_calc(WORKDIR, QMin):
             Tasks = gettasks(QMin)
             setupWORKDIR(WORKDIR, Tasks, QMin)
             strip = 'keepintegrals' not in QMin
-            err = runMOLCAS(WORKDIR, QMin['molcas'], QMin['driver'], QMin['ncpu'], strip)
+            for _ in range(4):
+                err = runMOLCAS(WORKDIR, QMin['molcas'], QMin['driver'], QMin['ncpu'], strip)
+                if err == 0:
+                    break
         except Exception as problem:
             print('*' * 50 + '\nException in run_calc(%s)!' % (WORKDIR))
             traceback.print_exc()
