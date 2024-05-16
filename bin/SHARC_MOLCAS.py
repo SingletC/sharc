@@ -3374,7 +3374,10 @@ def runMOLCAS(WORKDIR, MOLCAS, driver, ncpu, strip=False):
         sys.stdout.write('START:\t%s\t%s\t"%s"\n' % (WORKDIR, starttime, string))
         sys.stdout.flush()
     try:
-        runerror = sp.call(string, shell=True, stdout=stdoutfile, stderr=stderrfile)
+        for _ in range(4):
+            runerror = sp.call(string, shell=True, stdout=stdoutfile, stderr=stderrfile)
+            if runerror ==0:
+                break
         # pass
     except OSError:
         print('Call have had some serious problems:', OSError)
