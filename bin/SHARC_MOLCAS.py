@@ -3641,9 +3641,9 @@ def run_calc(WORKDIR, QMin):
             print('CRASHED:\t%s\tDid not converge. Giving up after 10 tries.' % (WORKDIR))
         try:
             Tasks = gettasks(QMin)
-            setupWORKDIR(WORKDIR, Tasks, QMin)
-            strip = 'keepintegrals' not in QMin
             for _ in range(4):
+                setupWORKDIR(WORKDIR, Tasks, QMin)
+                strip = 'keepintegrals' not in QMin
                 err = runMOLCAS(WORKDIR, QMin['molcas'], QMin['driver'], QMin['ncpu'], strip)
                 if err == 0:
                     break
