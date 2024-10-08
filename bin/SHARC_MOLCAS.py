@@ -3027,7 +3027,7 @@ def writeMOLCASinput(tasks, QMin):
                     string += '%i ' % (1)
                 string += '\n'
             if not QMin['method'] in [2,6]:
-                string += 'ORBLISTING=NOTHING\nPRWF=0.1\n'
+                string += 'ORBLISTING=ALL\nPRWF=0.1\n'
             if 'grad' in QMin and QMin['gradmode'] < 2:
                 string += 'THRS=1.0e-10 1.0e-06 1.0e-06\n'
             else:
