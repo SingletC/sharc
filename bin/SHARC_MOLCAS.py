@@ -3011,7 +3011,7 @@ def writeMOLCASinput(tasks, QMin):
                 QMin['template']['ras2'],
                 QMin['template']['iterations'][0],
                 QMin['template']['iterations'][1])
-            string += 'RLXRoot=2\n'
+            string += 'HOME\n'
             if QMin['template']['ras1'] > 0:
                 string += 'RAS1=%i\n' % (QMin['template']['ras1'])
             if QMin['template']['ras3'] > 0:
