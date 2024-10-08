@@ -3011,7 +3011,7 @@ def writeMOLCASinput(tasks, QMin):
                 QMin['template']['ras2'],
                 QMin['template']['iterations'][0],
                 QMin['template']['iterations'][1])
-            string += 'HOME\nCIREstart\n' if 'grad' in QMin else 'HOME\nCIREstart\nVB\n'
+            string += 'HOME\n'
             if QMin['template']['ras1'] > 0:
                 string += 'RAS1=%i\n' % (QMin['template']['ras1'])
             if QMin['template']['ras3'] > 0:
