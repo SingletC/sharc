@@ -3011,7 +3011,7 @@ def writeMOLCASinput(tasks, QMin):
                 QMin['template']['ras2'],
                 QMin['template']['iterations'][0],
                 QMin['template']['iterations'][1])
-            string += 'HOME\nCIREstart\n'
+            string += 'HOME\nCIREstart\nVB\n'
             if QMin['template']['ras1'] > 0:
                 string += 'RAS1=%i\n' % (QMin['template']['ras1'])
             if QMin['template']['ras3'] > 0:
@@ -3168,6 +3168,7 @@ def writeMOLCASinput(tasks, QMin):
             if len(task) > 2:
                 string += '%s\n' % (task[2])
             string += '\n'
+            string.replace('VB\n','')
 
 #        elif task[0]=='mclr-cms':
 #            string+='&MCLR\nTHRESHOLD=%f\n\n' % (task[1])
